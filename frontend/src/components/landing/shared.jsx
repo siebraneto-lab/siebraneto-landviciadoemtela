@@ -42,7 +42,7 @@ export const CountdownDisplay = ({ minutes, seconds, variant = "dark", testId })
             <span className="tick-num font-serif-h text-4xl md:text-5xl leading-none font-semibold">
               {u.value}
             </span>
-            <span className="mt-1 text-[10px] tracking-[0.25em] text-[#c9922e] font-bold">
+            <span className="mt-1 text-[10px] tracking-[0.25em] text-[#e8761e] font-bold">
               {u.label}
             </span>
           </div>
@@ -56,15 +56,28 @@ export const CountdownDisplay = ({ minutes, seconds, variant = "dark", testId })
 };
 
 /* ---------- CTA button ---------- */
-export const CtaButton = ({ children, testId, href = "#oferta", className = "" }) => (
-  <a
-    href={href}
-    data-testid={testId}
-    className={`cta-pulse inline-flex items-center justify-center gap-2 rounded-full bg-[#c9922e] hover:bg-[#b07f22] text-white font-extrabold tracking-tight text-center transition-colors duration-300 py-5 px-8 text-lg md:text-xl hover:-translate-y-0.5 active:scale-[0.98] transition-transform ${className}`}
-  >
-    {children}
-  </a>
-);
+export const CtaButton = ({ children, testId, href = "#oferta", className = "" }) => {
+  const handleClick = (e) => {
+    if (href && href.startsWith("#") && href.length > 1) {
+      const target = document.getElementById(href.slice(1));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 16;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }
+  };
+  return (
+    <a
+      href={href}
+      onClick={handleClick}
+      data-testid={testId}
+      className={`cta-pulse inline-flex items-center justify-center gap-2 rounded-full bg-[#e8761e] hover:bg-[#cf5f10] text-white font-extrabold tracking-tight text-center transition-colors duration-300 py-5 px-8 text-lg md:text-xl hover:-translate-y-0.5 active:scale-[0.98] transition-transform ${className}`}
+    >
+      {children}
+    </a>
+  );
+};
 
 /* ---------- Kiwify security seal ---------- */
 export const KiwifySeal = ({ onDark = false, testId }) => (
@@ -101,7 +114,7 @@ export const KiwifySeal = ({ onDark = false, testId }) => (
 
 /* ---------- Urgency pill badge ---------- */
 export const UrgencyBadge = ({ children }) => (
-  <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs md:text-sm font-semibold bg-[#c9922e]/10 text-[#8a621a] border border-[#c9922e]/30">
+  <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs md:text-sm font-semibold bg-[#e8761e]/10 text-[#a8500e] border border-[#e8761e]/30">
     <Clock className="h-3.5 w-3.5" />
     {children}
   </div>

@@ -22,7 +22,7 @@ export const OfferSection = ({ minutes, seconds }) => (
         >
           <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-[#8fae72]/20 blur-2xl" />
           <div className="bg-[#2e4222] px-8 py-6 text-center">
-            <div className="inline-flex items-center gap-2 text-[#e8b54d] font-bold text-sm">
+            <div className="inline-flex items-center gap-2 text-[#f4a259] font-bold text-sm">
               <Flame className="h-4 w-4" /> DESCONTO RELÂMPAGO — 50% OFF
             </div>
             <h3 className="mt-2 font-serif-h text-2xl md:text-3xl font-semibold text-white">
@@ -50,7 +50,7 @@ export const OfferSection = ({ minutes, seconds }) => (
                   R$ 19<span className="text-3xl align-top">,99</span>
                 </div>
               </div>
-              <p className="mt-2 text-sm text-[#b07f22] font-semibold">
+              <p className="mt-2 text-sm text-[#cf5f10] font-semibold">
                 Você economiza R$ 20,00 — apenas nos próximos 30 minutos
               </p>
               <div className="mt-6 w-full max-w-xs">
@@ -121,7 +121,7 @@ const FaqItem = ({ faq, index, open, onToggle }) => (
     >
       <span className="font-semibold text-[#2e4222]">{faq.q}</span>
       {open ? (
-        <Minus className="h-5 w-5 text-[#c9922e] flex-shrink-0" />
+        <Minus className="h-5 w-5 text-[#e8761e] flex-shrink-0" />
       ) : (
         <Plus className="h-5 w-5 text-[#8fae72] flex-shrink-0" />
       )}
@@ -170,7 +170,7 @@ export const FinalCtaSection = ({ minutes, seconds }) => (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[#8fae72]/25 blur-[120px] soft-glow" />
     <div className="relative z-10 mx-auto max-w-2xl px-5 text-center">
       <Reveal>
-        <Sun className="mx-auto h-10 w-10 text-[#e8b54d] float-slow" />
+        <Sun className="mx-auto h-10 w-10 text-[#f4a259] float-slow" />
         <h2 className="mt-6 font-serif-h text-3xl md:text-5xl font-bold text-white leading-tight">
           Não permita que o celular continue roubando suas noites
         </h2>
@@ -192,7 +192,7 @@ export const FinalCtaSection = ({ minutes, seconds }) => (
           </CtaButton>
           <KiwifySeal onDark testId="final-kiwify-seal" />
         </div>
-        <p className="mt-8 font-script text-3xl text-[#e8b54d]">
+        <p className="mt-8 font-script text-3xl text-[#f4a259]">
           Boas noites de sono para você.
         </p>
       </Reveal>
@@ -227,14 +227,22 @@ export const StickyBar = ({ minutes, seconds }) => {
         </div>
         <div
           data-testid="sticky-countdown"
-          className="text-[#e8b54d] text-xs md:text-base font-bold tabular-nums"
+          className="text-[#f4a259] text-xs md:text-base font-bold tabular-nums"
         >
           {minutes}:{seconds}
         </div>
         <a
           href="#oferta"
+          onClick={(e) => {
+            const target = document.getElementById("oferta");
+            if (target) {
+              e.preventDefault();
+              const top = target.getBoundingClientRect().top + window.scrollY - 16;
+              window.scrollTo({ top, behavior: "smooth" });
+            }
+          }}
           data-testid="sticky-buy-button"
-          className="flex-1 max-w-[55%] md:max-w-xs text-center rounded-full bg-[#c9922e] hover:bg-[#b07f22] text-white font-bold py-3 text-sm md:text-base transition-colors duration-300"
+          className="flex-1 max-w-[55%] md:max-w-xs text-center rounded-full bg-[#e8761e] hover:bg-[#cf5f10] text-white font-bold py-3 text-sm md:text-base transition-colors duration-300"
         >
           Comprar agora
         </a>

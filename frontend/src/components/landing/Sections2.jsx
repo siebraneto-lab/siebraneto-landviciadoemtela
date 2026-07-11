@@ -39,7 +39,7 @@ export const ModulesSection = () => (
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#8fae72]/20">
                   <m.icon className="h-6 w-6 text-[#5a7344]" />
                 </div>
-                <span className="rounded-full bg-[#c9922e]/10 border border-[#c9922e]/30 px-3 py-1 text-xs font-bold text-[#8a621a]">
+                <span className="rounded-full bg-[#e8761e]/10 border border-[#e8761e]/30 px-3 py-1 text-xs font-bold text-[#a8500e]">
                   {m.n}
                 </span>
               </div>
@@ -145,7 +145,7 @@ export const BeforeAfterSection = () => (
                 className="w-full h-56 object-cover"
                 data-testid="before-after-after-image"
               />
-              <span className="absolute top-4 left-4 rounded-full bg-[#c9922e] px-4 py-1.5 text-xs font-bold text-white">
+              <span className="absolute top-4 left-4 rounded-full bg-[#e8761e] px-4 py-1.5 text-xs font-bold text-white">
                 Depois
               </span>
             </div>
@@ -192,7 +192,7 @@ export const TestimonialsSection = () => (
             >
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} className="h-4 w-4 fill-[#c9922e] text-[#c9922e]" />
+                  <Star key={s} className="h-4 w-4 fill-[#e8761e] text-[#e8761e]" />
                 ))}
               </div>
               <p className="mt-4 text-sm text-[#3c4d2e] leading-relaxed flex-1">
@@ -237,7 +237,7 @@ export const AuthorSection = () => (
           <div>
             <span className="font-script text-2xl text-[#7a9a58]">Uma palavra do autor</span>
             <div className="mt-3 flex gap-3">
-              <Quote className="h-8 w-8 text-[#c9922e]/60 flex-shrink-0 rotate-180" />
+              <Quote className="h-8 w-8 text-[#e8761e]/60 flex-shrink-0 rotate-180" />
               <blockquote className="font-serif-h italic text-xl md:text-2xl text-[#2e4222] leading-snug">
                 "A mudança não acontece da noite para o dia — mas a sua próxima noite pode
                 ser o começo de tudo."
@@ -247,7 +247,7 @@ export const AuthorSection = () => (
               Este guia foi criado com empatia, ciência e um único propósito: devolver a
               você o descanso que você merece.
             </p>
-            <p className="mt-4 font-script text-3xl text-[#c9922e]">Siebra Neto</p>
+            <p className="mt-4 font-script text-3xl text-[#e8761e]">Siebra Neto</p>
           </div>
         </div>
       </Reveal>

@@ -7,7 +7,7 @@ import { PAINS, STATS, SCIENCE, IMAGES } from "@/data/content";
 export const Hero = ({ minutes, seconds }) => (
   <section className="relative overflow-hidden bg-[#f7f4e9] pt-20 pb-16 md:pt-28 md:pb-24">
     <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[#8fae72]/20 blur-[110px]" />
-    <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-[#c9922e]/10 blur-[100px]" />
+    <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-[#e8761e]/10 blur-[100px]" />
     <div className="relative z-10 mx-auto max-w-6xl px-5 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
       <div>
         <Reveal>
@@ -19,7 +19,7 @@ export const Hero = ({ minutes, seconds }) => (
           <h1 className="mt-3 font-serif-h text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.02] text-[#2e4222] tracking-tight">
             Viciado em tela,
             <br />
-            <span className="font-script font-bold text-[#c9922e]">refém da insônia?</span>
+            <span className="font-script font-bold text-[#e8761e]">refém da insônia?</span>
           </h1>
         </Reveal>
         <Reveal delay={0.14}>
@@ -73,7 +73,7 @@ export const Hero = ({ minutes, seconds }) => (
           <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-white shadow-2xl shadow-[#2e4222]/10">
             <img
               src={IMAGES.hero}
-              alt="Mulher dormindo serenamente em quarto claro e tranquilo"
+              alt="Pessoa deitada na cama no escuro com a luz do celular refletindo no rosto"
               className="w-full h-[420px] md:h-[520px] object-cover"
               data-testid="hero-image"
             />
@@ -100,7 +100,7 @@ export const PainSection = () => (
           <UrgencyBadge>Reconheça a dor antes que ela te custe mais noites</UrgencyBadge>
           <h2 className="mt-5 font-serif-h text-3xl md:text-5xl font-bold text-[#2e4222] leading-tight">
             Se você se identifica,{" "}
-            <span className="font-script text-[#c9922e]">
+            <span className="font-script text-[#e8761e]">
               as telas já estão te custando caro.
             </span>
           </h2>
@@ -206,7 +206,7 @@ export const ScienceSection = () => (
           <Reveal key={s.t} delay={i * 0.08}>
             <div
               data-testid="science-explainer-card"
-              className="group h-full rounded-3xl bg-[#fdfbf4] border border-[#2e4222]/10 border-l-4 border-l-[#c9922e] p-8 shadow-sm hover:border-[#8fae72]/50 transition-colors duration-300"
+              className="group h-full rounded-3xl bg-[#fdfbf4] border border-[#2e4222]/10 border-l-4 border-l-[#e8761e] p-8 shadow-sm hover:border-[#8fae72]/50 transition-colors duration-300"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#2e4222] group-hover:scale-110 transition-transform duration-300">
                 <s.icon className="h-6 w-6 text-[#8fae72]" />
