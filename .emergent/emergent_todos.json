@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Fase 2: Design tokens + CSS global (tema claro creme/verde/dourado)",
+    "status": "completed"
+  },
+  {
+    "content": "Fase 2: Implementar todas as 13 seções da landing page",
+    "status": "completed"
+  },
+  {
+    "content": "Fase 2: Countdown persistente + sticky bar + efeitos de conversão",
+    "status": "completed"
+  },
+  {
+    "content": "Fase 2: Substituir imagens fora do tema (hero) por imagens de sono/descanso claras",
+    "status": "completed"
+  },
+  {
+    "content": "Fase 2: Screenshot de verificação visual",
+    "status": "completed"
+  },
+  {
+    "content": "Fase 2: Teste E2E com testing agent + correções",
+    "status": "in_progress"
+  }
+]
