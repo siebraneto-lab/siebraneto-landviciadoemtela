@@ -13,6 +13,8 @@ import {
   Sprout,
 } from "lucide-react";
 
+export const CHECKOUT_URL = "https://pay.kiwify.com.br/cKG77Dn";
+
 export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1585332757084-e9622d190a51?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
   pain: "https://images.unsplash.com/photo-1610354878912-08f1ab8ae913?crop=entropy&cs=srgb&fm=jpg&q=80&w=1200",

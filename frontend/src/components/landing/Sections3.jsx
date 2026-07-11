@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Flame, Check, ShieldCheck, Plus, Minus, Sun } from "lucide-react";
 import { Reveal, CountdownDisplay, CtaButton, KiwifySeal, UrgencyBadge } from "./shared";
-import { OFFER_INCLUDES, FAQS } from "@/data/content";
+import { OFFER_INCLUDES, FAQS, CHECKOUT_URL } from "@/data/content";
 
 /* ============ OFFER ============ */
 export const OfferSection = ({ minutes, seconds }) => (
@@ -62,7 +62,11 @@ export const OfferSection = ({ minutes, seconds }) => (
                 />
               </div>
               <div className="mt-8 w-full flex flex-col items-center gap-4">
-                <CtaButton testId="pricing-buy-button" href="#" className="w-full max-w-sm">
+                <CtaButton
+                  testId="pricing-buy-button"
+                  href={CHECKOUT_URL}
+                  className="w-full max-w-sm"
+                >
                   Quero meu guia por R$ 19,99
                 </CtaButton>
                 <KiwifySeal testId="pricing-kiwify-seal" />
@@ -187,7 +191,7 @@ export const FinalCtaSection = ({ minutes, seconds }) => (
           />
         </div>
         <div className="mt-8 flex flex-col items-center gap-4">
-          <CtaButton testId="final-buy-button" href="#">
+          <CtaButton testId="final-buy-button" href={CHECKOUT_URL}>
             Garantir meu guia por R$ 19,99
           </CtaButton>
           <KiwifySeal onDark testId="final-kiwify-seal" />
@@ -232,15 +236,7 @@ export const StickyBar = ({ minutes, seconds }) => {
           {minutes}:{seconds}
         </div>
         <a
-          href="#oferta"
-          onClick={(e) => {
-            const target = document.getElementById("oferta");
-            if (target) {
-              e.preventDefault();
-              const top = target.getBoundingClientRect().top + window.scrollY - 16;
-              window.scrollTo({ top, behavior: "smooth" });
-            }
-          }}
+          href={CHECKOUT_URL}
           data-testid="sticky-buy-button"
           className="flex-1 max-w-[55%] md:max-w-xs text-center rounded-full bg-[#e8761e] hover:bg-[#cf5f10] text-white font-bold py-3 text-sm md:text-base transition-colors duration-300"
         >
