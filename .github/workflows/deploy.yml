@@ -22,18 +22,22 @@ jobs:
       run: |
         cd frontend
         npm install --legacy-peer-deps
-        # Força o build a ir para uma pasta limpa na raiz chamada 'site-pronto'
-        BUILD_PATH="../site-pronto" npm run build || true
-        
-        # Caso o comando acima não mude a pasta, nós movemos manualmente
-        if [ -d "dist" ]; then cp -r dist/* ../site-pronto/ 2>/dev/null || mv dist ../site-pronto; fi
-        if [ -d "build" ]; then cp -r build/* ../site-pronto/ 2>/dev/null || mv build ../site-pronto; fi
-      continue-on-error: true
+        npm run build
 
-    - name: 📁 Garantir pasta para envio
+    - name: 📁 Preparar pasta de envio
       run: |
-        # Se por algum motivo as pastas falharem, usa a pasta public como plano B
-        if [ ! -d "site-pronto" ]; then mkdir site-pronto && cp -r frontend/public/* site-pronto/; fi
+        # Cria a pasta temporária na raiz
+        mkdir -p site-pronto
+        
+        # Copia o conteúdo gerado pelo build do Craco para a pasta de envio
+        if [ -d "frontend/build" ]; then
+          cp -r frontend/build/* site-pronto/
+        elif [ -d "frontend/dist" ]; then
+          cp -r frontend/dist/* site-pronto/
+        else
+          # Fallback de segurança caso o build falhe silenciosamente
+          cp -r frontend/public/* site-pronto/
+        fi
 
     - name: 🚀 Enviando para o InfinityFree via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
