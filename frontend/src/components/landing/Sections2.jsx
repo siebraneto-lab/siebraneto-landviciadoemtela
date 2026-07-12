@@ -231,12 +231,12 @@ export const AuthorSection = () => (
             <img
               src={IMAGES.author}
               alt="Autor do guia"
-              className="relative h-52 w-52 md:h-60 md:w-60 rounded-full object-cover border-4 border-white shadow-xl"
+              className="relative h-44 w-44 sm:h-52 sm:w-52 md:h-60 md:w-60 rounded-full object-cover border-4 border-white shadow-xl"
             />
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <span className="font-script text-2xl text-[#7a9a58]">Uma palavra do autor</span>
-            <div className="mt-3 flex gap-3">
+            <div className="mt-3 flex flex-col md:flex-row items-center md:items-start gap-3">
               <Quote className="h-8 w-8 text-[#e8761e]/60 flex-shrink-0 rotate-180" />
               <blockquote className="font-serif-h italic text-xl md:text-2xl text-[#2e4222] leading-snug">
                 "A mudança não acontece da noite para o dia — mas a sua próxima noite pode

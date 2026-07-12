@@ -21,7 +21,7 @@ export const OfferSection = ({ minutes, seconds }) => (
           className="relative mt-10 overflow-hidden rounded-[2rem] bg-[#fdfbf4] border border-[#2e4222]/10 shadow-2xl shadow-[#2e4222]/10"
         >
           <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-[#8fae72]/20 blur-2xl" />
-          <div className="bg-[#2e4222] px-8 py-6 text-center">
+          <div className="bg-[#2e4222] px-5 sm:px-8 py-6 text-center">
             <div className="inline-flex items-center gap-2 text-[#f4a259] font-bold text-sm">
               <Flame className="h-4 w-4" /> DESCONTO RELÂMPAGO — 50% OFF
             </div>
@@ -32,7 +32,7 @@ export const OfferSection = ({ minutes, seconds }) => (
               O Guia Definitivo para Reconquistar Suas Noites
             </p>
           </div>
-          <div className="p-8 md:p-10">
+          <div className="p-5 sm:p-8 md:p-10">
             <ul className="grid sm:grid-cols-2 gap-3">
               {OFFER_INCLUDES.map((it) => (
                 <li key={it} className="flex items-start gap-2.5 text-sm text-[#3c4d2e]">
@@ -42,15 +42,18 @@ export const OfferSection = ({ minutes, seconds }) => (
               ))}
             </ul>
             <div className="mt-8 flex flex-col items-center">
-              <div className="flex items-end gap-3" data-testid="offer-price">
-                <span className="text-[#5a7344]/60 text-2xl font-medium line-through">
+              <div
+                className="flex flex-wrap items-end justify-center gap-3"
+                data-testid="offer-price"
+              >
+                <span className="text-[#5a7344]/60 text-xl sm:text-2xl font-medium line-through">
                   R$ 39,99
                 </span>
-                <div className="font-serif-h text-6xl md:text-7xl font-bold text-[#2e4222] leading-none">
-                  R$ 19<span className="text-3xl align-top">,99</span>
+                <div className="font-serif-h text-5xl sm:text-6xl md:text-7xl font-bold text-[#2e4222] leading-none">
+                  R$ 19<span className="text-2xl sm:text-3xl align-top">,99</span>
                 </div>
               </div>
-              <p className="mt-2 text-sm text-[#cf5f10] font-semibold">
+              <p className="mt-2 text-sm text-[#cf5f10] font-semibold text-center">
                 Você economiza R$ 20,00 — apenas nos próximos 30 minutos
               </p>
               <div className="mt-6 w-full max-w-xs">
@@ -70,7 +73,7 @@ export const OfferSection = ({ minutes, seconds }) => (
                   Quero meu guia por R$ 19,99
                 </CtaButton>
                 <KiwifySeal testId="pricing-kiwify-seal" />
-                <p className="text-xs text-[#5a7344]/70 flex items-center gap-1.5">
+                <p className="text-xs text-[#5a7344]/70 flex items-center gap-1.5 text-center px-2">
                   <ShieldCheck className="h-3.5 w-3.5" /> Acesso imediato após a compra ·
                   Compra 100% segura
                 </p>
@@ -170,7 +173,7 @@ export const FaqSection = () => {
 
 /* ============ FINAL CTA ============ */
 export const FinalCtaSection = ({ minutes, seconds }) => (
-  <section className="relative bg-[#2e4222] py-24 grain overflow-hidden">
+  <section className="relative bg-[#2e4222] pt-24 pb-52 md:pb-40 grain overflow-hidden">
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[#8fae72]/25 blur-[120px] soft-glow" />
     <div className="relative z-10 mx-auto max-w-2xl px-5 text-center">
       <Reveal>
@@ -191,7 +194,7 @@ export const FinalCtaSection = ({ minutes, seconds }) => (
           />
         </div>
         <div className="mt-8 flex flex-col items-center gap-4">
-          <CtaButton testId="final-buy-button" href={CHECKOUT_URL}>
+          <CtaButton testId="final-buy-button" href={CHECKOUT_URL} className="w-full sm:w-auto">
             Garantir meu guia por R$ 19,99
           </CtaButton>
           <KiwifySeal onDark testId="final-kiwify-seal" />
@@ -218,7 +221,7 @@ export const StickyBar = ({ minutes, seconds }) => {
   return (
     <div
       data-testid="sticky-purchase-bar"
-      className={`fixed bottom-0 inset-x-0 z-50 bg-[#2e4222]/95 backdrop-blur-lg border-t border-white/10 px-4 py-3 transition-transform duration-300 ${
+      className={`fixed bottom-0 inset-x-0 z-50 bg-[#2e4222]/95 backdrop-blur-lg border-t border-white/10 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] transition-transform duration-300 ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
