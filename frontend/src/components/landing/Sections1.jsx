@@ -9,7 +9,7 @@ export const Hero = ({ minutes, seconds }) => (
     <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[#8fae72]/20 blur-[110px]" />
     <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-[#e8761e]/10 blur-[100px]" />
     <div className="relative z-10 mx-auto max-w-6xl px-5 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-      <div>
+      <div className="text-center lg:text-left">
         <Reveal>
           <div className="inline-flex items-center gap-2 text-[#7a9a58] font-script text-2xl md:text-3xl">
             <Sparkles className="h-5 w-5" /> Você não está sozinho
@@ -23,7 +23,7 @@ export const Hero = ({ minutes, seconds }) => (
           </h1>
         </Reveal>
         <Reveal delay={0.14}>
-          <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed text-[#5a7344]">
+          <p className="mt-5 max-w-xl mx-auto lg:mx-0 text-base md:text-lg leading-relaxed text-[#5a7344]">
             Você se deita exausto, mas a mente não para. O celular é a última coisa que
             você vê à noite. Descubra o método prático e{" "}
             <span className="font-semibold text-[#2e4222]">baseado em ciência</span> para
@@ -31,7 +31,7 @@ export const Hero = ({ minutes, seconds }) => (
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-8 rounded-3xl border border-[#2e4222]/10 bg-[#fdfbf4] p-5 max-w-md shadow-sm">
+          <div className="mt-8 rounded-3xl border border-[#2e4222]/10 bg-[#fdfbf4] p-5 max-w-md mx-auto lg:mx-0 shadow-sm">
             <p className="text-xs uppercase tracking-[0.2em] text-[#7a9a58] font-semibold">
               A oferta especial termina em
             </p>
@@ -46,9 +46,14 @@ export const Hero = ({ minutes, seconds }) => (
           </div>
         </Reveal>
         <Reveal delay={0.26}>
-          <div className="mt-8 flex flex-col items-start gap-4">
-            <CtaButton testId="hero-buy-button">Quero reconquistar meu sono agora</CtaButton>
-            <div className="flex items-center gap-3" data-testid="hero-social-proof">
+          <div className="mt-8 flex flex-col items-center lg:items-start gap-4">
+            <CtaButton testId="hero-buy-button" className="w-full sm:w-auto">
+              Quero reconquistar meu sono agora
+            </CtaButton>
+            <div
+              className="flex flex-col sm:flex-row items-center gap-3"
+              data-testid="hero-social-proof"
+            >
               <div className="flex -space-x-3">
                 {[11, 12, 13, 14, 15].map((n) => (
                   <img
@@ -59,7 +64,7 @@ export const Hero = ({ minutes, seconds }) => (
                   />
                 ))}
               </div>
-              <div className="text-left text-sm text-[#5a7344]">
+              <div className="text-center sm:text-left text-sm text-[#5a7344]">
                 <span className="font-bold text-[#2e4222]">+2.000 pessoas</span> já voltaram
                 a dormir bem
               </div>
@@ -74,11 +79,11 @@ export const Hero = ({ minutes, seconds }) => (
             <img
               src={IMAGES.hero}
               alt="Pessoa deitada na cama no escuro com a luz do celular refletindo no rosto"
-              className="w-full h-[420px] md:h-[520px] object-cover"
+              className="w-full h-[320px] sm:h-[420px] md:h-[520px] object-cover"
               data-testid="hero-image"
             />
           </div>
-          <div className="absolute -bottom-5 -left-5 rounded-2xl bg-white shadow-xl px-5 py-3 border border-[#2e4222]/5 float-slow">
+          <div className="absolute -bottom-5 left-3 sm:-left-5 rounded-2xl bg-white shadow-xl px-5 py-3 border border-[#2e4222]/5 float-slow">
             <div className="font-serif-h text-2xl font-bold text-[#2e4222]">+2.000</div>
             <div className="text-xs text-[#5a7344]">noites transformadas</div>
           </div>
@@ -96,7 +101,7 @@ export const PainSection = () => (
   <section className="bg-[#edefdd] py-20 md:py-28">
     <div className="mx-auto max-w-6xl px-5 grid lg:grid-cols-2 gap-12 items-center">
       <Reveal>
-        <div>
+        <div className="text-center lg:text-left">
           <UrgencyBadge>Reconheça a dor antes que ela te custe mais noites</UrgencyBadge>
           <h2 className="mt-5 font-serif-h text-3xl md:text-5xl font-bold text-[#2e4222] leading-tight">
             Se você se identifica,{" "}
