@@ -3,20 +3,32 @@ name: Deploy para o InfinityFree
 on:
   push:
     branches:
-      - main # Mude para 'master' se o seu branch principal tiver esse nome
+      - main
 
 jobs:
   web-deploy:
-    name: FTP Deploy
+    name: Build e FTP Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Pegando o código mais recente
+    - name: 🚚 Pegando o código do repositório
       uses: actions/checkout@v4
 
-    - name: 🚀 Enviando arquivos via FTP
+    - name: 🟢 Configurando o Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: 📦 Instalar dependências e Gerar Build
+      run: |
+        cd frontend
+        npm install
+        npm run build # Isso compila o projeto e gera a pasta final (geralmente chamada 'dist')
+
+    - name: 🚀 Enviando apenas os arquivos compilados via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: htdocs/ # Pasta padrão do InfinityFree onde fica o site
+        local-dir: frontend/dist/  # Envia apenas a pasta final gerada pelo build
+        server-dir: htdocs/
