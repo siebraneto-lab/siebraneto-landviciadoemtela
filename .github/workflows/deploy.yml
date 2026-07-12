@@ -24,11 +24,23 @@ jobs:
         npm install --legacy-peer-deps
         npm run build
 
+    - name: 🔍 Detetar pasta de Build (dist ou build)
+      id: detect-dir
+      run: |
+        cd frontend
+        if [ -d "dist" ]; then
+          echo "FOLDER=frontend/dist/" >> $GITHUB_OUTPUT
+        elif [ -d "build" ]; then
+          echo "FOLDER=frontend/build/" >> $GITHUB_OUTPUT
+        else
+          echo "FOLDER=frontend/" >> $GITHUB_OUTPUT
+        fi
+
     - name: 🚀 Enviando apenas os arquivos compilados via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: frontend/dist/  # Se o build gerar erro de pasta depois, mudamos para frontend/build/
+        local-dir: ${{ steps.detect-dir.outputs.FOLDER }}
         server-dir: htdocs/
