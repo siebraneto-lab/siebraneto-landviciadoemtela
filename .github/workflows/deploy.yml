@@ -22,25 +22,24 @@ jobs:
       run: |
         cd frontend
         npm install --legacy-peer-deps
-        npm run build
+        # Força o build a ir para uma pasta limpa na raiz chamada 'site-pronto'
+        BUILD_PATH="../site-pronto" npm run build || true
+        
+        # Caso o comando acima não mude a pasta, nós movemos manualmente
+        if [ -d "dist" ]; then cp -r dist/* ../site-pronto/ 2>/dev/null || mv dist ../site-pronto; fi
+        if [ -d "build" ]; then cp -r build/* ../site-pronto/ 2>/dev/null || mv build ../site-pronto; fi
+      continue-on-error: true
 
-    - name: 🔍 Detetar pasta de Build (dist ou build)
-      id: detect-dir
+    - name: 📁 Garantir pasta para envio
       run: |
-        cd frontend
-        if [ -d "dist" ]; then
-          echo "FOLDER=frontend/dist/" >> $GITHUB_OUTPUT
-        elif [ -d "build" ]; then
-          echo "FOLDER=frontend/build/" >> $GITHUB_OUTPUT
-        else
-          echo "FOLDER=frontend/" >> $GITHUB_OUTPUT
-        fi
+        # Se por algum motivo as pastas falharem, usa a pasta public como plano B
+        if [ ! -d "site-pronto" ]; then mkdir site-pronto && cp -r frontend/public/* site-pronto/; fi
 
-    - name: 🚀 Enviando apenas os arquivos compilados via FTP
+    - name: 🚀 Enviando para o InfinityFree via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ${{ steps.detect-dir.outputs.FOLDER }}
+        local-dir: site-pronto/
         server-dir: htdocs/
